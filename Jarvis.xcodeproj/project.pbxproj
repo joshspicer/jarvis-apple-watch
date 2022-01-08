@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03A79A222778E04B000E500E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A212778E04B000E500E /* InterfaceController.swift */; };
+		03A79A222778E04B000E500E /* JarvisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A212778E04B000E500E /* JarvisModel.swift */; };
+		03A79A26278A110B000E500E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A25278A110B000E500E /* InterfaceController.swift */; };
 		03CF97B22776320500FF4FAF /* Jarvis WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 03CF97B12776320500FF4FAF /* Jarvis WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03CF97B72776320600FF4FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97B62776320600FF4FAF /* Assets.xcassets */; };
 		03CF97BD2776320700FF4FAF /* Jarvis WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -18,6 +19,9 @@
 		03CF97CA2776320700FF4FAF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF97C92776320700FF4FAF /* ComplicationController.swift */; };
 		03CF97CC2776320800FF4FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97CB2776320800FF4FAF /* Assets.xcassets */; };
 		03CF97CF2776320800FF4FAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97CE2776320800FF4FAF /* Preview Assets.xcassets */; };
+		57D717BF2C44ADED8B8DA369 /* Pods_Jarvis_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE884AEBD3C6962E9B27507A /* Pods_Jarvis_WatchKit_App.framework */; };
+		626888A4665F0A9835D6BBCC /* Pods_Jarvis_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58C937647CF0D015AF4ACFC /* Pods_Jarvis_WatchKit_Extension.framework */; };
+		8940BA2AC3CAA2512D77E58D /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B1217E6C46375E6E6B52AD /* Pods_Jarvis.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +67,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03A79A212778E04B000E500E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		03A79A212778E04B000E500E /* JarvisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisModel.swift; sourceTree = "<group>"; };
+		03A79A25278A110B000E500E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		03CF97AD2776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B12776320500FF4FAF /* Jarvis WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jarvis WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B62776320600FF4FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +82,15 @@
 		03CF97CE2776320800FF4FAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03CF97D02776320800FF4FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF97D12776320800FF4FAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		1949C3CBF27E785276363A75 /* Pods-Jarvis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.release.xcconfig"; path = "Target Support Files/Pods-Jarvis/Pods-Jarvis.release.xcconfig"; sourceTree = "<group>"; };
+		74C4568D0AC77525D1B98260 /* Pods-Jarvis WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		A441487E791902E75C5C6502 /* Pods-Jarvis WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		B58C937647CF0D015AF4ACFC /* Pods_Jarvis_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C210AFABD00EB97993C5DA21 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
+		E3B1217E6C46375E6E6B52AD /* Pods_Jarvis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3B9D9F066C4191F4478495A /* Pods-Jarvis WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit App/Pods-Jarvis WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		E5B6630C2F32F9E9135F55C4 /* Pods-Jarvis WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit App/Pods-Jarvis WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
+		EE884AEBD3C6962E9B27507A /* Pods_Jarvis_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +98,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				626888A4665F0A9835D6BBCC /* Pods_Jarvis_WatchKit_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B186E3C6F05B7C75394F65F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8940BA2AC3CAA2512D77E58D /* Pods_Jarvis.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBEB5543336078EBBC2600D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57D717BF2C44ADED8B8DA369 /* Pods_Jarvis_WatchKit_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +127,8 @@
 				03CF97B52776320500FF4FAF /* Jarvis WatchKit App */,
 				03CF97C02776320700FF4FAF /* Jarvis WatchKit Extension */,
 				03CF97AE2776320500FF4FAF /* Products */,
+				8338FC2A2E988E2F8D21B9AD /* Pods */,
+				2BCE00781702A1C61DA66433 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,7 +158,8 @@
 				03CF97C52776320700FF4FAF /* NotificationController.swift */,
 				03CF97C72776320700FF4FAF /* NotificationView.swift */,
 				03CF97C92776320700FF4FAF /* ComplicationController.swift */,
-				03A79A212778E04B000E500E /* InterfaceController.swift */,
+				03A79A212778E04B000E500E /* JarvisModel.swift */,
+				03A79A25278A110B000E500E /* InterfaceController.swift */,
 				03CF97CB2776320800FF4FAF /* Assets.xcassets */,
 				03CF97D02776320800FF4FAF /* Info.plist */,
 				03CF97D12776320800FF4FAF /* PushNotificationPayload.apns */,
@@ -142,6 +176,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2BCE00781702A1C61DA66433 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3B1217E6C46375E6E6B52AD /* Pods_Jarvis.framework */,
+				EE884AEBD3C6962E9B27507A /* Pods_Jarvis_WatchKit_App.framework */,
+				B58C937647CF0D015AF4ACFC /* Pods_Jarvis_WatchKit_Extension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8338FC2A2E988E2F8D21B9AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C210AFABD00EB97993C5DA21 /* Pods-Jarvis.debug.xcconfig */,
+				1949C3CBF27E785276363A75 /* Pods-Jarvis.release.xcconfig */,
+				E5B6630C2F32F9E9135F55C4 /* Pods-Jarvis WatchKit App.debug.xcconfig */,
+				E3B9D9F066C4191F4478495A /* Pods-Jarvis WatchKit App.release.xcconfig */,
+				74C4568D0AC77525D1B98260 /* Pods-Jarvis WatchKit Extension.debug.xcconfig */,
+				A441487E791902E75C5C6502 /* Pods-Jarvis WatchKit Extension.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,8 +207,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03CF97DC2776320800FF4FAF /* Build configuration list for PBXNativeTarget "Jarvis" */;
 			buildPhases = (
+				96CD06DEF6C436C5FFDA6C17 /* [CP] Check Pods Manifest.lock */,
 				03CF97AB2776320400FF4FAF /* Resources */,
 				03CF97DB2776320800FF4FAF /* Embed Watch Content */,
+				3B186E3C6F05B7C75394F65F /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -166,8 +226,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03CF97D82776320800FF4FAF /* Build configuration list for PBXNativeTarget "Jarvis WatchKit App" */;
 			buildPhases = (
+				E153CE9818FC53BE8C8B9E89 /* [CP] Check Pods Manifest.lock */,
 				03CF97AF2776320500FF4FAF /* Resources */,
 				03CF97D72776320800FF4FAF /* Embed App Extensions */,
+				DBEB5543336078EBBC2600D0 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03CF97D42776320800FF4FAF /* Build configuration list for PBXNativeTarget "Jarvis WatchKit Extension" */;
 			buildPhases = (
+				F86C0D553CCEA098C3D0826B /* [CP] Check Pods Manifest.lock */,
 				03CF97B82776320700FF4FAF /* Sources */,
 				03CF97B92776320700FF4FAF /* Frameworks */,
 				03CF97BA2776320700FF4FAF /* Resources */,
+				2AF8FC8D6CB675C15B397D34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +328,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2AF8FC8D6CB675C15B397D34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96CD06DEF6C436C5FFDA6C17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jarvis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E153CE9818FC53BE8C8B9E89 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jarvis WatchKit App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F86C0D553CCEA098C3D0826B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jarvis WatchKit Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03CF97B82776320700FF4FAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,7 +422,8 @@
 				03CF97C62776320700FF4FAF /* NotificationController.swift in Sources */,
 				03CF97C42776320700FF4FAF /* ContentView.swift in Sources */,
 				03CF97CA2776320700FF4FAF /* ComplicationController.swift in Sources */,
-				03A79A222778E04B000E500E /* InterfaceController.swift in Sources */,
+				03A79A26278A110B000E500E /* InterfaceController.swift in Sources */,
+				03A79A222778E04B000E500E /* JarvisModel.swift in Sources */,
 				03CF97C22776320700FF4FAF /* JarvisApp.swift in Sources */,
 				03CF97C82776320700FF4FAF /* NotificationView.swift in Sources */,
 			);
@@ -410,6 +561,7 @@
 		};
 		03CF97D52776320800FF4FAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74C4568D0AC77525D1B98260 /* Pods-Jarvis WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,6 +594,7 @@
 		};
 		03CF97D62776320800FF4FAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A441487E791902E75C5C6502 /* Pods-Jarvis WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
@@ -474,6 +627,7 @@
 		};
 		03CF97D92776320800FF4FAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5B6630C2F32F9E9135F55C4 /* Pods-Jarvis WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -499,6 +653,7 @@
 		};
 		03CF97DA2776320800FF4FAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3B9D9F066C4191F4478495A /* Pods-Jarvis WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -524,6 +679,7 @@
 		};
 		03CF97DD2776320800FF4FAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C210AFABD00EB97993C5DA21 /* Pods-Jarvis.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -537,6 +693,7 @@
 		};
 		03CF97DE2776320800FF4FAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1949C3CBF27E785276363A75 /* Pods-Jarvis.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

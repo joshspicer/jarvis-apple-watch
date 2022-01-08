@@ -9,12 +9,14 @@ import SwiftUI
 import Combine
 
 struct ContentView: View {
-//    @ObservedObject var icLink = ICLink()
+    @State private var showSecondView = false
+    var model: JarvisModel
     var body: some View {
         TabView {
             // First
             Button(action: {
-                doSomething()
+                model.openButton()
+                
             }) {
                     HStack {
                         Image(systemName: "lock")
@@ -34,7 +36,7 @@ struct ContentView: View {
 
                 // Second
                 Button(action: {
-                print("Key Button")
+                    self.showSecondView.toggle()
             }) {
                     Image(systemName: "key")
                         .font(.subheadline)
@@ -49,6 +51,9 @@ struct ContentView: View {
                 // Fourth
                }
                .tabViewStyle(.page)
+               .sheet(isPresented: $showSecondView) {
+                   QRImageView(model: model)
+               }
     }
 }
 
@@ -56,9 +61,15 @@ func doSomething() {
     print("something")
 }
 
+struct QRImageView: View {
+    var model: JarvisModel
+    var body: some View {
+        Image(model.qrCodeSecret(), scale: 5, orientation: .up, label: Text("QR"))
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(model: JarvisModel())
     }
 }
