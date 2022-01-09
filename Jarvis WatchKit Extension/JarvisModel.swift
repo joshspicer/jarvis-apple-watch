@@ -87,7 +87,7 @@ class JarvisModel {
 
         // Add Auth Header
         request.httpBody = Data(base64Encoded: (nonce.data(using: .utf8)?.base64EncodedString())!)
-        request.addValue(hmac, forHTTPHeaderField: "Authentication")
+        request.addValue(hmac, forHTTPHeaderField: "Authorization")
         
         // Change content type of body
         request.addValue("text/plain", forHTTPHeaderField: "Content-Type")
