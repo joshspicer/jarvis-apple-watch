@@ -47,6 +47,16 @@ struct ContentView: View {
                 .scaledToFit()
         
                 // Third
+                Button(action: {
+                    model.generateNewSecret()
+            }) {
+                    Image(systemName: "key")
+                        .font(.subheadline)
+                }
+                .foregroundColor(.white)
+                .background(.red)
+                .cornerRadius(90)
+                .scaledToFit()
             
                 // Fourth
                }

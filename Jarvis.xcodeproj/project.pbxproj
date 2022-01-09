@@ -196,7 +196,6 @@
 				74C4568D0AC77525D1B98260 /* Pods-Jarvis WatchKit Extension.debug.xcconfig */,
 				A441487E791902E75C5C6502 /* Pods-Jarvis WatchKit Extension.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
