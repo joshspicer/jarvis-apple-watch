@@ -21,45 +21,43 @@ class JarvisModel {
     }
     
     func generateNewSecret() -> String {
-        
-        let newUUID = UUID().uuidString
-        print("new UUID -> \(newUUID)")
-        UserDefaults.standard.setValue(newUUID, forKey: JARVIS_GENERATED_KEY)
-        
-        return newUUID
-    }
-    
-    func getSecret() -> String {
         let deviceId = WatchKit.WKInterfaceDevice.current().identifierForVendor?.uuidString
         if (deviceId == nil) {
             print("Failed to fetch DeviceId")
             return ""
         }
-        print("DeviceId: \(deviceId!)")
+        print("DeviceId -> \(deviceId!)")
         
-        var generatedSecret: String = UserDefaults.standard.string(forKey: JARVIS_GENERATED_KEY) ?? ""
-        if generatedSecret == "" {
-            print("No secret saved in persistent storage. Generating one...")
-            generatedSecret = generateNewSecret()
+        let newUUID = UUID().uuidString
+        print("new UUID -> \(newUUID)")
+        
+        let secret = "\(deviceId!)_\(newUUID)"
+        UserDefaults.standard.setValue(secret, forKey: JARVIS_GENERATED_KEY)
+        return secret
+    }
+    
+    func getSecret() -> String {
+        var cachedSecret: String = UserDefaults.standard.string(forKey: JARVIS_GENERATED_KEY) ?? ""
+        if cachedSecret == "" {
+            print("No secret cached in persistent storage. Generating one...")
+            cachedSecret = generateNewSecret()
         }
                 
-        if generatedSecret == "" {
+        if cachedSecret == "" {
             print("Failed to get secret!")
             return ""
         }
         
-        print("generatedSecret: \(generatedSecret)")
-        
-        let secret = "\(deviceId!)_\(generatedSecret)"
-        print("Secret: \(secret)")
-
-        return secret
+        print("Secret ->  \(cachedSecret)")
+        return cachedSecret
     }
     
 
     func calculateHMAC(nonce: String) -> String {
         
         let secret = getSecret()
+        
+        print("nonce -> \(nonce)")
     
         // Generate HMAC with timestamp
         let symKey = SymmetricKey(data: secret.data(using: .utf8)!)
@@ -69,11 +67,11 @@ class JarvisModel {
         return Data(signature).map { String(format: "%02hhx", $0) }.joined()
     }
 
-    func openButton() {
+    func openButton(responseString: Binding<String>) {
         print("openButton()")
         
         // Send to willow.party
-        let url = URL(string: "")!
+        let url = URL(string: "http://willow.party/trustedknock")!
         print(url)
 
         var request = URLRequest(url: url)
@@ -83,6 +81,7 @@ class JarvisModel {
         let nonce = "\(unixTime)_\(UUID().uuidString)"
 
         let hmac = calculateHMAC(nonce: nonce)
+        print("hmac -> \(hmac)")
         request.httpMethod = "POST"
 
         // Add Auth Header
@@ -91,10 +90,14 @@ class JarvisModel {
         
         // Change content type of body
         request.addValue("text/plain", forHTTPHeaderField: "Content-Type")
-
+        
         let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data else { return }
-            print(String(data: data, encoding: .utf8)!)
+            if let httpResponse = response as? HTTPURLResponse {
+                    print(httpResponse.statusCode)
+                responseString.wrappedValue = String(httpResponse.statusCode)
+            } else {
+                responseString.wrappedValue = "ERR"
+            }
         }
         task.resume()
     }

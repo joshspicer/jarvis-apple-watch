@@ -10,29 +10,36 @@ import Combine
 
 struct ContentView: View {
     @State private var showSecondView = false
+    @State private var response = ""
     var model: JarvisModel
     var body: some View {
         TabView {
             // First
-            Button(action: {
-                model.openButton()
-                
-            }) {
-                    HStack {
-                        Image(systemName: "lock")
-                            .font(.title)
-                        Text("Open")
-                            .fontWeight(.semibold)
-                            .font(.system(size: 500))
-                            .padding()
-                            .minimumScaleFactor(0.01)
-                            .lineLimit(1)
+            VStack {
+                Button(action: {
+                    response = "..."
+                    model.openButton(responseString: $response)
+                }) {
+                        HStack {
+                            Image(systemName: "lock")
+                                .font(.title)
+                            Text("Open")
+                                .fontWeight(.semibold)
+                                .font(.system(size: 500))
+                                .padding()
+                                .minimumScaleFactor(0.01)
+                                .lineLimit(1)
+                        }
+                       
                     }
                     .padding()
                     .foregroundColor(.white)
                     .background(.green)
                     .cornerRadius(40)
-                }
+                
+                Text(response)
+
+            }
 
                 // Second
                 Button(action: {
@@ -48,7 +55,7 @@ struct ContentView: View {
         
                 // Third
                 Button(action: {
-                    model.generateNewSecret()
+                   _ = model.generateNewSecret()
             }) {
                     Image(systemName: "key")
                         .font(.subheadline)

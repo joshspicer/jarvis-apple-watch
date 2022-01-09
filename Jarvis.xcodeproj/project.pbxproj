@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		03A79A222778E04B000E500E /* JarvisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A212778E04B000E500E /* JarvisModel.swift */; };
 		03A79A26278A110B000E500E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A25278A110B000E500E /* InterfaceController.swift */; };
-		03CF97B22776320500FF4FAF /* Jarvis Willow Bot WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 03CF97B12776320500FF4FAF /* Jarvis Willow Bot WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		03CF97B22776320500FF4FAF /* Jarvis.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 03CF97B12776320500FF4FAF /* Jarvis.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03CF97B72776320600FF4FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97B62776320600FF4FAF /* Assets.xcassets */; };
 		03CF97BD2776320700FF4FAF /* Jarvis WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03CF97C22776320700FF4FAF /* JarvisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF97C12776320700FF4FAF /* JarvisApp.swift */; };
@@ -59,7 +59,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				03CF97B22776320500FF4FAF /* Jarvis Willow Bot WatchKit App.app in Embed Watch Content */,
+				03CF97B22776320500FF4FAF /* Jarvis.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,8 +69,8 @@
 /* Begin PBXFileReference section */
 		03A79A212778E04B000E500E /* JarvisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisModel.swift; sourceTree = "<group>"; };
 		03A79A25278A110B000E500E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		03CF97AD2776320500FF4FAF /* Jarvis: Willow Bot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jarvis: Willow Bot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		03CF97B12776320500FF4FAF /* Jarvis Willow Bot WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Jarvis Willow Bot WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CF97AD2776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03CF97B12776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B62776320600FF4FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Jarvis WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97C12776320700FF4FAF /* JarvisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisApp.swift; sourceTree = "<group>"; };
@@ -135,8 +135,8 @@
 		03CF97AE2776320500FF4FAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03CF97AD2776320500FF4FAF /* Jarvis: Willow Bot.app */,
-				03CF97B12776320500FF4FAF /* Jarvis Willow Bot WatchKit App.app */,
+				03CF97AD2776320500FF4FAF /* Jarvis.app */,
+				03CF97B12776320500FF4FAF /* Jarvis.app */,
 				03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */,
 			);
 			name = Products;
@@ -218,7 +218,7 @@
 			);
 			name = Jarvis;
 			productName = Jarvis;
-			productReference = 03CF97AD2776320500FF4FAF /* Jarvis: Willow Bot.app */;
+			productReference = 03CF97AD2776320500FF4FAF /* Jarvis.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		03CF97B02776320500FF4FAF /* Jarvis WatchKit App */ = {
@@ -237,7 +237,7 @@
 			);
 			name = "Jarvis WatchKit App";
 			productName = "Jarvis WatchKit App";
-			productReference = 03CF97B12776320500FF4FAF /* Jarvis Willow Bot WatchKit App.app */;
+			productReference = 03CF97B12776320500FF4FAF /* Jarvis.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		03CF97BB2776320700FF4FAF /* Jarvis WatchKit Extension */ = {
@@ -564,13 +564,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Jarvis WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = N7C8DEK852;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Jarvis WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Jarvis Willow Bot WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = Jarvis;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Jarvis_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Josh Spicer";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -579,7 +579,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshspicer.Jarvis.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -597,13 +597,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Jarvis WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = N7C8DEK852;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Jarvis WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Jarvis Willow Bot WatchKit Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = Jarvis;
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Jarvis_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Josh Spicer";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -612,7 +612,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshspicer.Jarvis.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -632,14 +632,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N7C8DEK852;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Jarvis_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshspicer.Jarvis.watchkitapp;
-				PRODUCT_NAME = "Jarvis Willow Bot WatchKit App";
+				PRODUCT_NAME = Jarvis;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -657,14 +657,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N7C8DEK852;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = Jarvis_WatchKit_Extension;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshspicer.Jarvis.watchkitapp;
-				PRODUCT_NAME = "Jarvis Willow Bot WatchKit App";
+				PRODUCT_NAME = Jarvis;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -679,11 +679,11 @@
 			baseConfigurationReference = C210AFABD00EB97993C5DA21 /* Pods-Jarvis.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N7C8DEK852;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshspicer.Jarvis;
-				PRODUCT_NAME = "Jarvis: Willow Bot";
+				PRODUCT_NAME = Jarvis;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -693,11 +693,11 @@
 			baseConfigurationReference = 1949C3CBF27E785276363A75 /* Pods-Jarvis.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N7C8DEK852;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshspicer.Jarvis;
-				PRODUCT_NAME = "Jarvis: Willow Bot";
+				PRODUCT_NAME = Jarvis;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
