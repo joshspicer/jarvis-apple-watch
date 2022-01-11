@@ -70,8 +70,8 @@ class JarvisModel {
     func openButton(responseString: Binding<String>) {
         print("openButton()")
         
-        // Send to willow.party
-        let url = URL(string: "http://willow.party/trustedknock")!
+        // Send to service
+        let url = URL(string: "")!
         print(url)
 
         var request = URLRequest(url: url)
