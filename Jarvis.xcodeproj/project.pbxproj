@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03A79A222778E04B000E500E /* JarvisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A212778E04B000E500E /* JarvisModel.swift */; };
 		03A79A26278A110B000E500E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A25278A110B000E500E /* InterfaceController.swift */; };
+		03A79A2F278EE9D8000E500E /* Variable-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A79A2E278EE9D8000E500E /* Variable-Info.plist */; };
 		03CF97B22776320500FF4FAF /* Jarvis.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 03CF97B12776320500FF4FAF /* Jarvis.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03CF97B72776320600FF4FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97B62776320600FF4FAF /* Assets.xcassets */; };
 		03CF97BD2776320700FF4FAF /* Jarvis WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		03A79A212778E04B000E500E /* JarvisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisModel.swift; sourceTree = "<group>"; };
 		03A79A25278A110B000E500E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		03A79A2E278EE9D8000E500E /* Variable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Variable-Info.plist"; sourceTree = "<group>"; };
 		03CF97AD2776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B12776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B62776320600FF4FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				03CF97D02776320800FF4FAF /* Info.plist */,
 				03CF97D12776320800FF4FAF /* PushNotificationPayload.apns */,
 				03CF97CD2776320800FF4FAF /* Preview Content */,
+				03A79A2E278EE9D8000E500E /* Variable-Info.plist */,
 			);
 			path = "Jarvis WatchKit Extension";
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A79A2F278EE9D8000E500E /* Variable-Info.plist in Resources */,
 				03CF97CF2776320800FF4FAF /* Preview Assets.xcassets in Resources */,
 				03CF97CC2776320800FF4FAF /* Assets.xcassets in Resources */,
 			);

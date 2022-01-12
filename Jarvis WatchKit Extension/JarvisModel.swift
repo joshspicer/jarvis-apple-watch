@@ -16,6 +16,24 @@ class JarvisModel {
     
     let JARVIS_GENERATED_KEY = "JARVIS_GENERATED_KEY"
     
+    let SERVICE: String
+    let ROUTE: String
+    
+    init() {
+        guard let filePath = Bundle.main.path(forResource: "Variable-Info", ofType: "plist") else {
+            fatalError("Couldn't find file 'Variable-Info.plist'.")
+        }
+        let plist = NSDictionary(contentsOfFile: filePath)
+        
+        self.SERVICE = plist?.object(forKey: "Service") as? String ?? ""
+        self.ROUTE = plist?.object(forKey: "Route") as? String ?? ""
+        
+        if self.SERVICE  == "" || self.ROUTE == "" {
+            fatalError("Could not fetch SERVICE or ROUTE from Variable-Info.plist")
+        }
+        print("\(SERVICE)/\(ROUTE)")
+    }
+    
     func boop() {
         print("boop")
     }
@@ -71,7 +89,7 @@ class JarvisModel {
         print("openButton()")
         
         // Send to service
-        let url = URL(string: "")!
+        let url = URL(string: "\(SERVICE)/\(ROUTE)")!
         print(url)
 
         var request = URLRequest(url: url)
