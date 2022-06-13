@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03348094285768C60011D0C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03348093285768C60011D0C0 /* Info.plist */; };
-		033480962857693A0011D0C0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 033480952857693A0011D0C0 /* Info.plist */; };
 		03A79A222778E04B000E500E /* JarvisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A212778E04B000E500E /* JarvisModel.swift */; };
 		03A79A26278A110B000E500E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A25278A110B000E500E /* InterfaceController.swift */; };
 		03A79A2F278EE9D8000E500E /* Variable-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A79A2E278EE9D8000E500E /* Variable-Info.plist */; };
@@ -70,8 +68,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		03348093285768C60011D0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		033480952857693A0011D0C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03A79A212778E04B000E500E /* JarvisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisModel.swift; sourceTree = "<group>"; };
 		03A79A25278A110B000E500E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		03A79A2E278EE9D8000E500E /* Variable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Variable-Info.plist"; sourceTree = "<group>"; };
@@ -130,7 +126,6 @@
 		03CF97A62776320400FF4FAF = {
 			isa = PBXGroup;
 			children = (
-				033480952857693A0011D0C0 /* Info.plist */,
 				03CF97B52776320500FF4FAF /* Jarvis WatchKit App */,
 				03CF97C02776320700FF4FAF /* Jarvis WatchKit Extension */,
 				03CF97AE2776320500FF4FAF /* Products */,
@@ -153,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				03CF97B62776320600FF4FAF /* Assets.xcassets */,
-				03348093285768C60011D0C0 /* Info.plist */,
 			);
 			path = "Jarvis WatchKit App";
 			sourceTree = "<group>";
@@ -321,9 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03348094285768C60011D0C0 /* Info.plist in Resources */,
 				03CF97B72776320600FF4FAF /* Assets.xcassets in Resources */,
-				033480962857693A0011D0C0 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
