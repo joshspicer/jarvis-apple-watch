@@ -96,7 +96,7 @@ class JarvisModel {
         let unixTime: NSInteger = NSInteger(NSDate().timeIntervalSince1970)
 
         let currentDevice = WatchKit.WKInterfaceDevice.current()
-        let device = "\(currentDevice.systemName)-\(currentDevice.systemVersion)-\(currentDevice.model)-\(currentDevice.batteryLevel)-\(currentDevice.name)"
+        let device = currentDevice.name
 
         // Add Auth Header
         let nonce = "\(unixTime)_\(UUID().uuidString)"
