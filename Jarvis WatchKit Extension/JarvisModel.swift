@@ -95,6 +95,9 @@ class JarvisModel {
         var request = URLRequest(url: url)
         let unixTime: NSInteger = NSInteger(NSDate().timeIntervalSince1970)
 
+        let currentDevice = WatchKit.WKInterfaceDevice.current()
+        let device = "\(currentDevice.systemName)-\(currentDevice.systemVersion)-\(currentDevice.model)-\(currentDevice.batteryLevel)-\(currentDevice.name)"
+
         // Add Auth Header
         let nonce = "\(unixTime)_\(UUID().uuidString)"
 
@@ -102,9 +105,10 @@ class JarvisModel {
         print("hmac -> \(hmac)")
         request.httpMethod = "POST"
 
-        // Add Auth Header
-        request.httpBody = Data(base64Encoded: (nonce.data(using: .utf8)?.base64EncodedString())!)
+        // Add Headers
         request.addValue(hmac, forHTTPHeaderField: "Authorization")
+        request.addValue(nonce, forHTTPHeaderField: "X-Jarvis-Timestamp")
+        request.addValue(device, forHTTPHeaderField: "X-Jarvis-Device")
         
         // Change content type of body
         request.addValue("text/plain", forHTTPHeaderField: "Content-Type")
