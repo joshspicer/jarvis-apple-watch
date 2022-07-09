@@ -15,3 +15,7 @@ Add two keys `Service` and `Route`, looking something like:
 `Route` : `myRoute`
 
 The Model will read this plist and interpolate the full URL like: `let url = "\(SERVICE)/\(ROUTE)")`
+
+## Related
+
+[jarvis](https://github.com/joshspicer/jarvis)
