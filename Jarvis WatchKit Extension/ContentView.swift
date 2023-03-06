@@ -10,15 +10,52 @@ import Combine
 
 struct ContentView: View {
     @State private var showSecondView = false
-    @State private var response = ""
+
+    @State private var pageOneResponse = ""
+    @State private var pageTwoResponse = ""
+
     var model: JarvisModel
     var body: some View {
         TabView {
             // First
             VStack {
                 Button(action: {
-                    response = "..."
-                    model.openButton(responseString: $response)
+                    pageOneResponse = "..."
+                    model.query(q: QueryRequest.Node("health",
+                                                        "GET",
+                                                        QueryType.PlainText,
+                                                        AuthMode.None,
+                                                        CertMode.ClientCert), res: $pageOneResponse)
+                }) {
+                        HStack {
+                            Image(systemName: "heart.fill")
+                                .font(.title)
+                            Text("Node Health")
+                                .fontWeight(.semibold)
+                                .font(.system(size: 500))
+                                .padding()
+                                .minimumScaleFactor(0.01)
+                                .lineLimit(1)
+                        }
+                       
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .cornerRadius(40)
+                
+                Text(pageOneResponse)
+
+            }
+            // Second
+            VStack {
+                Button(action: {
+                    pageTwoResponse = "..."
+                    model.query(q: QueryRequest.Cluster("trustedknock",
+                                                        "POST",
+                                                        QueryType.StatusCode,
+                                                        AuthMode.HMAC,
+                                                        CertMode.None), res: $pageTwoResponse)
                 }) {
                         HStack {
                             Image(systemName: "lock")
@@ -37,11 +74,10 @@ struct ContentView: View {
                     .background(.green)
                     .cornerRadius(40)
                 
-                Text(response)
+                Text(pageTwoResponse)
 
             }
-
-                // Second
+                // Third
                 Button(action: {
                     self.showSecondView.toggle()
             }) {
@@ -52,8 +88,8 @@ struct ContentView: View {
                 .background(.blue)
                 .cornerRadius(90)
                 .scaledToFit()
-        
-                // Third
+
+                // Fourth
                 Button(action: {
                    _ = model.generateNewSecret()
             }) {
@@ -64,18 +100,14 @@ struct ContentView: View {
                 .background(.red)
                 .cornerRadius(90)
                 .scaledToFit()
-            
-                // Fourth
+
+                // Fifth
                }
                .tabViewStyle(.page)
                .sheet(isPresented: $showSecondView) {
                    QRImageView(model: model)
                }
     }
-}
-
-func doSomething() {
-    print("something")
 }
 
 struct QRImageView: View {

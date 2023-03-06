@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03A03D5B29B565AC0013ED42 /* UserCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03D5A29B565AC0013ED42 /* UserCertificate.swift */; };
+		03A03D5D29B568EF0013ED42 /* client-cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 03A03D5C29B568EE0013ED42 /* client-cert.p12 */; };
+		03A03D5E29B568EF0013ED42 /* client-cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 03A03D5C29B568EE0013ED42 /* client-cert.p12 */; };
+		03A03D5F29B568EF0013ED42 /* client-cert.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 03A03D5C29B568EE0013ED42 /* client-cert.p12 */; };
+		03A03D6129B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03D6029B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift */; };
+		03A03D6329B570220013ED42 /* VariableInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A03D6229B570220013ED42 /* VariableInfoModel.swift */; };
 		03A79A222778E04B000E500E /* JarvisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A212778E04B000E500E /* JarvisModel.swift */; };
 		03A79A26278A110B000E500E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A79A25278A110B000E500E /* InterfaceController.swift */; };
-		03A79A2F278EE9D8000E500E /* Variable-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A79A2E278EE9D8000E500E /* Variable-Info.plist */; };
+		03A79A2F278EE9D8000E500E /* VariableInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03A79A2E278EE9D8000E500E /* VariableInfo.plist */; };
 		03CF97B22776320500FF4FAF /* Jarvis.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 03CF97B12776320500FF4FAF /* Jarvis.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		03CF97B72776320600FF4FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97B62776320600FF4FAF /* Assets.xcassets */; };
 		03CF97BD2776320700FF4FAF /* Jarvis WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -68,9 +74,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03A03D5A29B565AC0013ED42 /* UserCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCertificate.swift; sourceTree = "<group>"; };
+		03A03D5C29B568EE0013ED42 /* client-cert.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "client-cert.p12"; sourceTree = "<group>"; };
+		03A03D6029B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClientCertificateHandling.swift; sourceTree = "<group>"; };
+		03A03D6229B570220013ED42 /* VariableInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableInfoModel.swift; sourceTree = "<group>"; };
 		03A79A212778E04B000E500E /* JarvisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisModel.swift; sourceTree = "<group>"; };
 		03A79A25278A110B000E500E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		03A79A2E278EE9D8000E500E /* Variable-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Variable-Info.plist"; sourceTree = "<group>"; };
+		03A79A2E278EE9D8000E500E /* VariableInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = VariableInfo.plist; sourceTree = "<group>"; };
 		03CF97AD2776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B12776320500FF4FAF /* Jarvis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jarvis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03CF97B62776320600FF4FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +138,6 @@
 			children = (
 				03CF97B52776320500FF4FAF /* Jarvis WatchKit App */,
 				03CF97C02776320700FF4FAF /* Jarvis WatchKit Extension */,
-				03CF97AE2776320500FF4FAF /* Products */,
 				8338FC2A2E988E2F8D21B9AD /* Pods */,
 				2BCE00781702A1C61DA66433 /* Frameworks */,
 			);
@@ -142,6 +151,7 @@
 				03CF97BC2776320700FF4FAF /* Jarvis WatchKit Extension.appex */,
 			);
 			name = Products;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		03CF97B52776320500FF4FAF /* Jarvis WatchKit App */ = {
@@ -155,18 +165,22 @@
 		03CF97C02776320700FF4FAF /* Jarvis WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				03CF97CD2776320800FF4FAF /* Preview Content */,
 				03CF97C12776320700FF4FAF /* JarvisApp.swift */,
 				03CF97C32776320700FF4FAF /* ContentView.swift */,
 				03CF97C52776320700FF4FAF /* NotificationController.swift */,
+				03CF97D12776320800FF4FAF /* PushNotificationPayload.apns */,
 				03CF97C72776320700FF4FAF /* NotificationView.swift */,
 				03CF97C92776320700FF4FAF /* ComplicationController.swift */,
 				03A79A212778E04B000E500E /* JarvisModel.swift */,
 				03A79A25278A110B000E500E /* InterfaceController.swift */,
+				03A03D5A29B565AC0013ED42 /* UserCertificate.swift */,
+				03A03D6029B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift */,
 				03CF97CB2776320800FF4FAF /* Assets.xcassets */,
 				03CF97D02776320800FF4FAF /* Info.plist */,
-				03CF97D12776320800FF4FAF /* PushNotificationPayload.apns */,
-				03CF97CD2776320800FF4FAF /* Preview Content */,
-				03A79A2E278EE9D8000E500E /* Variable-Info.plist */,
+				03A79A2E278EE9D8000E500E /* VariableInfo.plist */,
+				03A03D6229B570220013ED42 /* VariableInfoModel.swift */,
+				03A03D5C29B568EE0013ED42 /* client-cert.p12 */,
 			);
 			path = "Jarvis WatchKit Extension";
 			sourceTree = "<group>";
@@ -174,6 +188,7 @@
 		03CF97CD2776320800FF4FAF /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				03CF97AE2776320500FF4FAF /* Products */,
 				03CF97CE2776320800FF4FAF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -308,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A03D5D29B568EF0013ED42 /* client-cert.p12 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03A03D5E29B568EF0013ED42 /* client-cert.p12 in Resources */,
 				03CF97B72776320600FF4FAF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,7 +340,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03A79A2F278EE9D8000E500E /* Variable-Info.plist in Resources */,
+				03A03D5F29B568EF0013ED42 /* client-cert.p12 in Resources */,
+				03A79A2F278EE9D8000E500E /* VariableInfo.plist in Resources */,
 				03CF97CF2776320800FF4FAF /* Preview Assets.xcassets in Resources */,
 				03CF97CC2776320800FF4FAF /* Assets.xcassets in Resources */,
 			);
@@ -424,9 +442,12 @@
 			files = (
 				03CF97C62776320700FF4FAF /* NotificationController.swift in Sources */,
 				03CF97C42776320700FF4FAF /* ContentView.swift in Sources */,
+				03A03D5B29B565AC0013ED42 /* UserCertificate.swift in Sources */,
 				03CF97CA2776320700FF4FAF /* ComplicationController.swift in Sources */,
 				03A79A26278A110B000E500E /* InterfaceController.swift in Sources */,
 				03A79A222778E04B000E500E /* JarvisModel.swift in Sources */,
+				03A03D6129B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift in Sources */,
+				03A03D6329B570220013ED42 /* VariableInfoModel.swift in Sources */,
 				03CF97C22776320700FF4FAF /* JarvisApp.swift in Sources */,
 				03CF97C82776320700FF4FAF /* NotificationView.swift in Sources */,
 			);

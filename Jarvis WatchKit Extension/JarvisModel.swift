@@ -12,32 +12,65 @@ import WatchKit
 import CryptoKit
 import EFQRCode
 
+enum QueryType {
+    case StatusCode
+    case PlainText
+    case JSON
+}
+
+enum AuthMode {
+    case None
+    case HMAC
+}
+
+enum CertMode {
+    case None
+    case ClientCert
+}
+
+enum QueryRequest {
+    // Service(Route, Method, QueryType, UseHMACAuth, UseClientCert)
+    case Cluster(String, String, QueryType, AuthMode, CertMode)
+    case Node(String, String, QueryType, AuthMode, CertMode)
+}
+
 class JarvisModel {
     
     let JARVIS_GENERATED_KEY = "JARVIS_GENERATED_KEY"
+        
+    // Cache important variables from VariableInfo
+    var clusterServiceUri: String
+    var nodeServiceUri: String
     
-    let SERVICE: String
-    let ROUTE: String
     
     init() {
-        guard let filePath = Bundle.main.path(forResource: "Variable-Info", ofType: "plist") else {
-            fatalError("Couldn't find file 'Variable-Info.plist'.")
+        guard let filePath = Bundle.main.path(forResource: VARIABLE_INFO_FILE_PATH, ofType: "plist"),
+            let plist = NSDictionary(contentsOfFile: filePath)
+        else {
+            fatalError("Couldn't find file '\(VARIABLE_INFO_FILE_PATH).plist'.")
         }
-        let plist = NSDictionary(contentsOfFile: filePath)
+        self.clusterServiceUri = plist.object(forKey: CLUSTER_SERVICE_URI_KEY) as? String ?? ""
+        self.nodeServiceUri = plist.object(forKey: NODE_SERVICE_URI_KEY) as? String ?? ""
         
-        self.SERVICE = plist?.object(forKey: "Service") as? String ?? ""
-        self.ROUTE = plist?.object(forKey: "Route") as? String ?? ""
-        
-        if self.SERVICE  == "" || self.ROUTE == "" {
-            fatalError("Could not fetch SERVICE or ROUTE from Variable-Info.plist")
-        }
-        print("\(SERVICE)/\(ROUTE)")
+        ValidateInit()
     }
     
-    func boop() {
-        print("boop")
+    private func ValidateInit() {
+        if self.clusterServiceUri == "" {
+            fatalError("\(CLUSTER_SERVICE_URI_KEY) not set.")
+        }
+        if self.nodeServiceUri == "" {
+            fatalError("\(NODE_SERVICE_URI_KEY) not set.")
+        }
     }
-    
+
+    func qrCodeSecret() -> CGImage {
+        let secret = getSecret()
+        return EFQRCode.generate(
+            for: secret
+        )!
+    }
+
     func generateNewSecret() -> String {
         let deviceId = WatchKit.WKInterfaceDevice.current().identifierForVendor?.uuidString
         if (deviceId == nil) {
@@ -54,7 +87,7 @@ class JarvisModel {
         return secret
     }
     
-    func getSecret() -> String {
+    private func getSecret() -> String {
         var cachedSecret: String = UserDefaults.standard.string(forKey: JARVIS_GENERATED_KEY) ?? ""
         if cachedSecret == "" {
             print("No secret cached in persistent storage. Generating one...")
@@ -71,7 +104,7 @@ class JarvisModel {
     }
     
 
-    func calculateHMAC(nonce: String) -> String {
+    private func calculateHMAC(nonce: String) -> String {
         
         let secret = getSecret()
         
@@ -85,49 +118,103 @@ class JarvisModel {
         return Data(signature).map { String(format: "%02hhx", $0) }.joined()
     }
 
-    func openButton(responseString: Binding<String>) {
+    func query(q: QueryRequest, res: Binding<String>) {
         print("openButton()")
         
-        // Send to service
-        let url = URL(string: "\(SERVICE)/\(ROUTE)")!
+        let service: String
+        let route: String
+        let method: String
+        let queryType: QueryType
+        let authMode: AuthMode
+        let certMode: CertMode
+        
+        switch q {
+        case let .Cluster(r, m, q, a, c):
+            print("Cluster: \(r) \(m) \(q) \(a) \(c)")
+            service = clusterServiceUri
+            method = m
+            route = r
+            queryType = q
+            authMode = a
+            certMode = c
+        case let .Node(r, m, q, a, c):
+            print("Node: \(r) \(m) \(q) \(a) \(c)")
+            service = nodeServiceUri
+            route = r
+            method = m
+            queryType = q
+            authMode = a
+            certMode = c
+        }
+
+        // Target URI
+        let url = URL(string: "\(service)/\(route)")!
         print(url)
 
         var request = URLRequest(url: url)
-        let unixTime: NSInteger = NSInteger(NSDate().timeIntervalSince1970)
+        request.httpMethod = method
 
+        if authMode == AuthMode.HMAC {
+            let unixTime: NSInteger = NSInteger(NSDate().timeIntervalSince1970)
+
+            // Add Auth Header
+            let nonce = "\(unixTime)_\(UUID().uuidString)"
+
+            let hmac = calculateHMAC(nonce: nonce)
+            print("hmac -> \(hmac)")
+
+            // Add Headers
+            request.addValue(hmac, forHTTPHeaderField: "Authorization")
+            request.addValue(nonce, forHTTPHeaderField: "X-Jarvis-Timestamp")
+        }
+        
         let currentDevice = WatchKit.WKInterfaceDevice.current()
         let device = currentDevice.name
-
-        // Add Auth Header
-        let nonce = "\(unixTime)_\(UUID().uuidString)"
-
-        let hmac = calculateHMAC(nonce: nonce)
-        print("hmac -> \(hmac)")
-        request.httpMethod = "POST"
-
-        // Add Headers
-        request.addValue(hmac, forHTTPHeaderField: "Authorization")
-        request.addValue(nonce, forHTTPHeaderField: "X-Jarvis-Timestamp")
         request.addValue(device, forHTTPHeaderField: "X-Jarvis-Device")
-        
+
         // Change content type of body
         request.addValue("text/plain", forHTTPHeaderField: "Content-Type")
         
-        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+        let session = URLSession(configuration: .default, delegate: certMode == CertMode.ClientCert ? URLSessionClientCertificateHandling() : nil, delegateQueue: nil)
+        
+        let task = session.dataTask(with: request) {(data, response, error) in
             if let httpResponse = response as? HTTPURLResponse {
-                    print(httpResponse.statusCode)
-                responseString.wrappedValue = String(httpResponse.statusCode)
+                print(httpResponse.statusCode)
+                
+                if queryType == QueryType.StatusCode {
+                    res.wrappedValue = String(httpResponse.statusCode)
+                    return
+                }
+                
+                if httpResponse.statusCode > 299 {
+                    res.wrappedValue = "ERR (\(httpResponse.statusCode))"
+                    return
+                }
+                
+                let stringResponse = String(data: data!, encoding: String.Encoding.utf8)
+                res.wrappedValue = stringResponse ?? "ERR"
+                
             } else {
-                responseString.wrappedValue = "ERR"
+                res.wrappedValue = "ERR"
             }
         }
+
         task.resume()
     }
     
-    func qrCodeSecret() -> CGImage {
-        let secret = getSecret()
-        return EFQRCode.generate(
-            for: secret
-        )!
+    private func sendHTTPRequest(request: URLRequest, useCertificate: Bool) async -> String {
+        let session = URLSession(configuration: .default, delegate: useCertificate ? URLSessionClientCertificateHandling() : nil, delegateQueue: nil)
+        do {
+            let (data, response) = try await session.data(for: request, delegate: nil)
+            
+            guard let httpResponse = response as? HTTPURLResponse else { return "" }
+            print("(!) \(httpResponse.statusCode)")
+            
+            let stringResponse = String(data: data, encoding: String.Encoding.utf8)
+            return stringResponse ?? ""
+
+        } catch {
+            return error.localizedDescription
+        }
     }
 }

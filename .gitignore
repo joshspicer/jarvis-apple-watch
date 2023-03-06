@@ -1,4 +1,7 @@
-#**/Variable-Info.plist
+VariableInfo.plist
+*.p12
+*.key
+*.crt
 
 */**/.DS_Store
 .DS_Store
