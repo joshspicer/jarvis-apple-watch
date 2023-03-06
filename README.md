@@ -4,18 +4,14 @@ Apple Watch app to interface with Jarvis web service.
 
 ## Setup
 
-### Variable-Info.plist
+This is a companion app/frontend for [Jarvis](https://github/com/joshspicer/jarvis) and its associated services.  You'll need that running for this app to be useful.
 
-Create a plist file called `Variable-Info.plist` in the `Jarvis WatchKit Extension`. 
+### VariableInfo.plist
 
-Add two keys `Service` and `Route`, looking something like:
+Create a plist file called `VariableInfo.plist` in the `Jarvis WatchKit Extension`. THe `VariableInfoModel.swift` illustrates what is needed.
 
-`Service` : `https://example.com`
+### Add a client certificate
 
-`Route` : `myRoute`
+This app supports auth against a service with a client cert.  For example, with [Cloudflare's WAF](https://developers.cloudflare.com/ssl/client-certificates/configure-your-mobile-app-or-iot-device/).
 
-The Model will read this plist and interpolate the full URL like: `let url = "\(SERVICE)/\(ROUTE)")`
-
-## Related
-
-[jarvis](https://github.com/joshspicer/jarvis)
+`openssl pkcs12 -export -out cert.p12 -in cert.pem -inkey cert.key`
