@@ -71,6 +71,13 @@ class JarvisModel {
         return secret
     }
     
+    public func setSecret(newSecret: String) {
+        if newSecret == "" {
+            return
+        }
+        UserDefaults.standard.setValue(newSecret, forKey: JARVIS_GENERATED_KEY)
+    }
+    
     internal func getSecret() -> String {
         var cachedSecret: String = UserDefaults.standard.string(forKey: JARVIS_GENERATED_KEY) ?? ""
         if cachedSecret == "" {
