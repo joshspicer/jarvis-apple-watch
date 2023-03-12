@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var pageOneResponse = ""
     @State private var pageTwoResponse = ""
 
-    var model: JarvisModel
+    var model: JarvisWatchOSModel
     var body: some View {
         TabView {
             // First
@@ -111,7 +111,7 @@ struct ContentView: View {
 }
 
 struct QRImageView: View {
-    var model: JarvisModel
+    var model: JarvisWatchOSModel
     var body: some View {
         Image(model.qrCodeSecret(), scale: 5, orientation: .up, label: Text("QR"))
     }
@@ -119,6 +119,6 @@ struct QRImageView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(model: JarvisModel())
+        ContentView(model: JarvisWatchOSModel())
     }
 }

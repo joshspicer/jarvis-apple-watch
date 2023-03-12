@@ -13,7 +13,7 @@ struct JarvisApp: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView(model: JarvisModel())
+                ContentView(model: JarvisWatchOSModel())
             }
         }
         WKNotificationScene(controller: NotificationController.self, category: "JarvisUtility")

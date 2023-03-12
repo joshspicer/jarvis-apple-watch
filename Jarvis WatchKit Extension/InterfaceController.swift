@@ -10,6 +10,6 @@ import SwiftUI
 
 class InterfaceController : WKHostingController<ContentView>, ObservableObject {
     override var body: ContentView {
-        ContentView(model: JarvisModel())
+        ContentView(model: JarvisWatchOSModel())
     }
 }

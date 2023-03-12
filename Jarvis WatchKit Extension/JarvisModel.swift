@@ -7,10 +7,8 @@
 
 import Foundation
 import SwiftUI
-import WatchConnectivity
-import WatchKit
 import CryptoKit
-import EFQRCode
+
 
 enum QueryType {
     case StatusCode
@@ -64,30 +62,16 @@ class JarvisModel {
         }
     }
 
-    func qrCodeSecret() -> CGImage {
-        let secret = getSecret()
-        return EFQRCode.generate(
-            for: secret
-        )!
-    }
 
-    func generateNewSecret() -> String {
-        let deviceId = WatchKit.WKInterfaceDevice.current().identifierForVendor?.uuidString
-        if (deviceId == nil) {
-            print("Failed to fetch DeviceId")
-            return ""
-        }
-        print("DeviceId -> \(deviceId!)")
-        
+
+    internal func generateNewSecret() -> String {
         let newUUID = UUID().uuidString
-        print("new UUID -> \(newUUID)")
-        
-        let secret = "\(deviceId!)_\(newUUID)"
+        let secret = "v2_\(newUUID)"
         UserDefaults.standard.setValue(secret, forKey: JARVIS_GENERATED_KEY)
         return secret
     }
     
-    private func getSecret() -> String {
+    internal func getSecret() -> String {
         var cachedSecret: String = UserDefaults.standard.string(forKey: JARVIS_GENERATED_KEY) ?? ""
         if cachedSecret == "" {
             print("No secret cached in persistent storage. Generating one...")
@@ -168,9 +152,9 @@ class JarvisModel {
             request.addValue(nonce, forHTTPHeaderField: "X-Jarvis-Timestamp")
         }
         
-        let currentDevice = WatchKit.WKInterfaceDevice.current()
-        let device = currentDevice.name
-        request.addValue(device, forHTTPHeaderField: "X-Jarvis-Device")
+//        let currentDevice = WatchKit.WKInterfaceDevice.current()
+//        let device = currentDevice.name
+//        request.addValue(device, forHTTPHeaderField: "X-Jarvis-Device")
 
         // Change content type of body
         request.addValue("text/plain", forHTTPHeaderField: "Content-Type")

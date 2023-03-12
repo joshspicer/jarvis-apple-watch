@@ -26,9 +26,8 @@
 		03CF97CA2776320700FF4FAF /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CF97C92776320700FF4FAF /* ComplicationController.swift */; };
 		03CF97CC2776320800FF4FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97CB2776320800FF4FAF /* Assets.xcassets */; };
 		03CF97CF2776320800FF4FAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CF97CE2776320800FF4FAF /* Preview Assets.xcassets */; };
-		57D717BF2C44ADED8B8DA369 /* Pods_Jarvis_WatchKit_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE884AEBD3C6962E9B27507A /* Pods_Jarvis_WatchKit_App.framework */; };
-		626888A4665F0A9835D6BBCC /* Pods_Jarvis_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B58C937647CF0D015AF4ACFC /* Pods_Jarvis_WatchKit_Extension.framework */; };
-		8940BA2AC3CAA2512D77E58D /* Pods_Jarvis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3B1217E6C46375E6E6B52AD /* Pods_Jarvis.framework */; };
+		03DEC5ED29BD50D600AEF5EB /* JarvisWatchOSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DEC5EC29BD50D600AEF5EB /* JarvisWatchOSModel.swift */; };
+		03DEC5F129BD560300AEF5EB /* UserCertificateWatchOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DEC5F029BD560300AEF5EB /* UserCertificateWatchOS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,15 +93,14 @@
 		03CF97CE2776320800FF4FAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		03CF97D02776320800FF4FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CF97D12776320800FF4FAF /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		03DEC5EC29BD50D600AEF5EB /* JarvisWatchOSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisWatchOSModel.swift; sourceTree = "<group>"; };
+		03DEC5F029BD560300AEF5EB /* UserCertificateWatchOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCertificateWatchOS.swift; sourceTree = "<group>"; };
 		1949C3CBF27E785276363A75 /* Pods-Jarvis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.release.xcconfig"; path = "Target Support Files/Pods-Jarvis/Pods-Jarvis.release.xcconfig"; sourceTree = "<group>"; };
 		74C4568D0AC77525D1B98260 /* Pods-Jarvis WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		A441487E791902E75C5C6502 /* Pods-Jarvis WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit Extension/Pods-Jarvis WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
-		B58C937647CF0D015AF4ACFC /* Pods_Jarvis_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C210AFABD00EB97993C5DA21 /* Pods-Jarvis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis.debug.xcconfig"; path = "Target Support Files/Pods-Jarvis/Pods-Jarvis.debug.xcconfig"; sourceTree = "<group>"; };
-		E3B1217E6C46375E6E6B52AD /* Pods_Jarvis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B9D9F066C4191F4478495A /* Pods-Jarvis WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit App/Pods-Jarvis WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		E5B6630C2F32F9E9135F55C4 /* Pods-Jarvis WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jarvis WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-Jarvis WatchKit App/Pods-Jarvis WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
-		EE884AEBD3C6962E9B27507A /* Pods_Jarvis_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jarvis_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				626888A4665F0A9835D6BBCC /* Pods_Jarvis_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8940BA2AC3CAA2512D77E58D /* Pods_Jarvis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +122,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57D717BF2C44ADED8B8DA369 /* Pods_Jarvis_WatchKit_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,8 +168,10 @@
 				03CF97C72776320700FF4FAF /* NotificationView.swift */,
 				03CF97C92776320700FF4FAF /* ComplicationController.swift */,
 				03A79A212778E04B000E500E /* JarvisModel.swift */,
+				03DEC5EC29BD50D600AEF5EB /* JarvisWatchOSModel.swift */,
 				03A79A25278A110B000E500E /* InterfaceController.swift */,
 				03A03D5A29B565AC0013ED42 /* UserCertificate.swift */,
+				03DEC5F029BD560300AEF5EB /* UserCertificateWatchOS.swift */,
 				03A03D6029B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift */,
 				03CF97CB2776320800FF4FAF /* Assets.xcassets */,
 				03CF97D02776320800FF4FAF /* Info.plist */,
@@ -197,9 +194,6 @@
 		2BCE00781702A1C61DA66433 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E3B1217E6C46375E6E6B52AD /* Pods_Jarvis.framework */,
-				EE884AEBD3C6962E9B27507A /* Pods_Jarvis_WatchKit_App.framework */,
-				B58C937647CF0D015AF4ACFC /* Pods_Jarvis_WatchKit_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -447,8 +441,10 @@
 				03A79A26278A110B000E500E /* InterfaceController.swift in Sources */,
 				03A79A222778E04B000E500E /* JarvisModel.swift in Sources */,
 				03A03D6129B56ABD0013ED42 /* URLSessionClientCertificateHandling.swift in Sources */,
+				03DEC5ED29BD50D600AEF5EB /* JarvisWatchOSModel.swift in Sources */,
 				03A03D6329B570220013ED42 /* VariableInfoModel.swift in Sources */,
 				03CF97C22776320700FF4FAF /* JarvisApp.swift in Sources */,
+				03DEC5F129BD560300AEF5EB /* UserCertificateWatchOS.swift in Sources */,
 				03CF97C82776320700FF4FAF /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
