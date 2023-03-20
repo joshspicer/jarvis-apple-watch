@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		035EF2BE29C82C7B00A3C887 /* NodeResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EF2BD29C82C7B00A3C887 /* NodeResponseView.swift */; };
 		03DEC5C029BD4A2A00AEF5EB /* JarvisControlPanelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DEC5BF29BD4A2A00AEF5EB /* JarvisControlPanelApp.swift */; };
 		03DEC5C229BD4A2A00AEF5EB /* ControlPanelContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DEC5C129BD4A2A00AEF5EB /* ControlPanelContentView.swift */; };
 		03DEC5C429BD4A2D00AEF5EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03DEC5C329BD4A2D00AEF5EB /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		035EF2BD29C82C7B00A3C887 /* NodeResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeResponseView.swift; sourceTree = "<group>"; };
 		03DEC5BC29BD4A2A00AEF5EB /* JarvisControlPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JarvisControlPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DEC5BF29BD4A2A00AEF5EB /* JarvisControlPanelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JarvisControlPanelApp.swift; sourceTree = "<group>"; };
 		03DEC5C129BD4A2A00AEF5EB /* ControlPanelContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				03DEC5BF29BD4A2A00AEF5EB /* JarvisControlPanelApp.swift */,
 				03DEC5C129BD4A2A00AEF5EB /* ControlPanelContentView.swift */,
 				03DEC5F229BD561A00AEF5EB /* UserCertificateUniversalApp.swift */,
+				035EF2BD29C82C7B00A3C887 /* NodeResponseView.swift */,
 				03DEC5C329BD4A2D00AEF5EB /* Assets.xcassets */,
 				03DEC5C529BD4A2D00AEF5EB /* JarvisControlPanel.entitlements */,
 				03DEC5C629BD4A2D00AEF5EB /* Preview Content */,
@@ -165,6 +168,7 @@
 				03DEC5E729BD509400AEF5EB /* VariableInfoModel.swift in Sources */,
 				03DEC5EA29BD509400AEF5EB /* UserCertificate.swift in Sources */,
 				03DEC5EB29BD509400AEF5EB /* VariableInfo.plist in Sources */,
+				035EF2BE29C82C7B00A3C887 /* NodeResponseView.swift in Sources */,
 				03DEC5DF29BD4F8E00AEF5EB /* JarvisModel.swift in Sources */,
 				03DEC5F429BD58FC00AEF5EB /* URLSessionClientCertificateHandling.swift in Sources */,
 				03DEC5C229BD4A2A00AEF5EB /* ControlPanelContentView.swift in Sources */,
