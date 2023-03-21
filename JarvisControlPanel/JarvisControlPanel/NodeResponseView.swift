@@ -12,7 +12,48 @@ struct NodeResponseView: View {
     var body: some View {
 //        Text("\(String(data.gpsLocation.latitude)), \(String(data.gpsLocation.longitude))")
         if data != nil {
-            Text(String(data?.signalStrength ?? -99))
+            VStack {
+                // header
+                HStack {
+                    Text("JADE") // 'Node' Header.
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .font(.system(size: 20))
+                }
+                .padding()
+
+                HStack {
+                    Text("Accessories Battery")
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("\(String(data!.accessoriesBattery))%")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .padding([.trailing, .leading])
+                .frame(maxWidth: .infinity)
+
+                HStack {
+                    Text("Signal Strength")
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(String(data!.signalStrength))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .padding([.trailing, .leading])
+                .frame(maxWidth: .infinity)
+
+                HStack {
+                    Text("GPS Location")
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text("\(data!.gpsLatitude), \(data!.gpsLongitude)")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .font(.system(size: 12))
+                }
+                .padding([.trailing, .leading])
+                .frame(maxWidth: .infinity)
+            }
+            .frame(maxWidth: .infinity)
         } else {
             Text(verbatim: "¯\\_(ツ)_/¯")
         }

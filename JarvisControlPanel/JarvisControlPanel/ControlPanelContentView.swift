@@ -29,7 +29,7 @@ struct ControlPanelContentView: View {
             ToolbarItemGroup(placement: .keyboard) {
               Spacer()
 
-              Button("Hide Keyboard") {
+              Button("Hide") {
                 isInputActive = false
               }
             }

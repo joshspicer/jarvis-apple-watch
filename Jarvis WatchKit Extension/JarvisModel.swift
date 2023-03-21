@@ -30,13 +30,10 @@ enum QueryRequest {
   case Node(String, String, QueryType, AuthMode, CertMode)
 }
 
-enum Status: String {
-  case success, failure
-}
-
 struct NodeResponse: Decodable {
-  let accessoriesBattery: String
-  //  let gpsLocation: (latitude: Double, longitude: Double)
+  let accessoriesBattery: Int
+  let gpsLatitude: Double
+  let gpsLongitude: Double
   let signalStrength: Int
 }
 
