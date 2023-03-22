@@ -30,7 +30,7 @@ enum QueryRequest {
   case Node(String, String, QueryType, AuthMode, CertMode)
 }
 
-struct NodeResponse: Decodable {
+struct NodeResponse: Decodable, Equatable {
   let accessoriesBattery: Int
   let gpsLatitude: Double
   let gpsLongitude: Double

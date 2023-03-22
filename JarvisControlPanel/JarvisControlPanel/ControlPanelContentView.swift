@@ -5,6 +5,7 @@
 //  Created by Josh Spicer on 3/11/23.
 //
 
+import MapKit
 import SwiftUI
 
 struct ControlPanelContentView: View {
@@ -56,7 +57,6 @@ struct ControlPanelContentView: View {
           .cornerRadius(20)
           .foregroundColor(Color.white)
 
-        Spacer()
         NodeResponseView(data: nodeResponse)
         Spacer()
 
@@ -94,11 +94,15 @@ struct ControlPanelContentView: View {
         }
       }
     }
+    // Update region when nodeResponse changes
+    .onChange(of: nodeResponse) { _ in
+      print("CHANGE!!!")
+    }
   }
 }
 
-struct ControlPanelContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ControlPanelContentView(model: JarvisModel())
-  }
-}
+//struct ControlPanelContentView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    ControlPanelContentView(model: JarvisModel())
+//  }
+//}
