@@ -37,7 +37,7 @@ struct NodeResponse: Decodable, Equatable {
   let signalStrength: Int
 }
 
-struct ClusterResponse {
+struct ClusterResponse: Decodable, Equatable {
 }
 
 class JarvisModel {

@@ -8,96 +8,95 @@
 import MapKit
 import SwiftUI
 
+
 struct ControlPanelContentView: View {
   var model: JarvisModel
-  @State private var status: String = "READY"
+  @State private var nodeStatus: String = ""
   @State private var nodeResponse: NodeResponse? = nil
-  @State private var secret: String = ""
-  @FocusState var isInputActive: Bool
+    @State private var clusterStatus: String = ""
+  @State private var clusterResponse: ClusterResponse? = nil
+    
+    // Update secret
+    @State private var isShowingUpdateSecretPrompt = false
+    @State private var updateSecretInput = ""
+
+    
   var body: some View {
-    ZStack {
-      VStack {
-
-        // Centered horizontally
-        HStack {
-          Image(systemName: "key.viewfinder")
-          SecureField(
-            "Reset Secret...",
-            text: $secret
-          )
-          .focused($isInputActive)
-          .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-              Spacer()
-
-              Button("Hide") {
-                isInputActive = false
+      NavigationView {
+          ZStack {
+              VStack {
+                  NodeResponseView(data: nodeResponse, status: nodeStatus)
+                  ClusterResponseView(data: clusterResponse, status: clusterStatus)
+                  Spacer()
+                  HStack {
+                      Spacer()
+                      Button(
+                        action: {
+                            nodeStatus = "..."
+                            clusterStatus = "..."
+                            model.query(
+                                q: QueryRequest.Node(
+                                    "info",
+                                    "GET",
+                                    QueryType.JSON,
+                                    AuthMode.HMAC,
+                                    CertMode.ClientCert), status: $nodeStatus, responseData: $nodeResponse)
+                            
+                            model.query(
+                                q: QueryRequest.Cluster(
+                                    "info2",
+                                    "GET",
+                                    QueryType.JSON,
+                                    AuthMode.HMAC,
+                                    CertMode.ClientCert), status: $clusterStatus, responseData: $clusterResponse)
+                            
+                        },
+                        label: {
+                            Image(systemName: "icloud.and.arrow.down")
+                                .font(.system(.largeTitle))
+                                .frame(width: 77, height: 70)
+                                .foregroundColor(Color.white)
+                                .padding(.bottom, 7)
+                        }
+                      )
+                      .background(Color(red: 34 / 255, green: 139 / 255, blue: 34 / 255))
+                      .cornerRadius(38.5)
+                      .padding()
+                      .shadow(
+                        color: Color.black.opacity(0.3),
+                        radius: 3,
+                        x: 3,
+                        y: 3)
+                  }
               }
-            }
           }
-          // Button to Save the secret persistently and clear the input
-          Button(
-            action: {
-              model.setSecret(newSecret: $secret.wrappedValue)
-              secret = ""
-            },
-            label: {
-              Image(systemName: "goforward.plus")
-            }
-          )
-
-        }
-        .padding()
-        // Transparent background color (full alpha)
-        Text(status)
-          .font(.system(size: 14))
-          .padding(10)
-          .padding([.leading, .trailing], 50)
-          .background(.gray)
-          .cornerRadius(20)
-          .foregroundColor(Color.white)
-
-        NodeResponseView(data: nodeResponse)
-        Spacer()
-
-        HStack {
-          Spacer()
-
-          Button(
-            action: {
-              status = "..."
-              model.query(
-                q: QueryRequest.Node(
-                  "info",
-                  "GET",
-                  QueryType.JSON,
-                  AuthMode.HMAC,
-                  CertMode.ClientCert), status: $status, responseData: $nodeResponse)
-
-            },
-            label: {
-              Image(systemName: "icloud.and.arrow.down")
-                .font(.system(.largeTitle))
-                .frame(width: 77, height: 70)
-                .foregroundColor(Color.white)
-                .padding(.bottom, 7)
-            }
-          )
-          .background(Color(red: 34 / 255, green: 139 / 255, blue: 34 / 255))
-          .cornerRadius(38.5)
-          .padding()
-          .shadow(
-            color: Color.black.opacity(0.3),
-            radius: 3,
-            x: 3,
-            y: 3)
-        }
+          .toolbar {
+              ToolbarItemGroup(placement: .navigationBarTrailing) {
+                  
+                  Menu {
+                    
+                    Button(action: {
+                          withAnimation {
+                              self.isShowingUpdateSecretPrompt.toggle()
+                          }
+                      })
+                      {
+                          Label("Update Secret", systemImage: "key")
+                      }
+//                      Button(action: {}) {
+//                          Label("View Camera", systemImage: "camera")
+//                      }
+                  }
+              label: {
+                  Label("Settings", systemImage: "ellipsis.circle")
+              }
+              }
+          }
       }
-    }
-    // Update region when nodeResponse changes
-    .onChange(of: nodeResponse) { _ in
-      print("CHANGE!!!")
-    }
+      .textFieldAlert(isShowing: $isShowingUpdateSecretPrompt, text: $updateSecretInput, title: "Update Secret")
+      .onChange(of: updateSecretInput) { newValue in
+          model.setSecret(newSecret: newValue)
+      }
   }
 }
 
@@ -106,3 +105,5 @@ struct ControlPanelContentView: View {
 //    ControlPanelContentView(model: JarvisModel())
 //  }
 //}
+
+

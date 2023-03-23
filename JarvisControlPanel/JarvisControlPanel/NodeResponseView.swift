@@ -50,6 +50,7 @@ struct CurrentLocationMap: View {
 
 struct NodeResponseView: View {
   var data: NodeResponse?
+    var status: String
   var body: some View {
     if data != nil {
       VStack {
@@ -102,7 +103,18 @@ struct NodeResponseView: View {
       .frame(maxWidth: .infinity)
     } else {
       Spacer()
-      Text(verbatim: "¯\\_(ツ)_/¯")
+        
+        if status == "" {
+            Text(verbatim: "¯\\_(ツ)_/¯")
+        } else {
+            Text(status)
+                .font(.system(size: 14))
+                .padding(10)
+                .padding([.leading, .trailing], 50)
+                .background(.gray)
+                .cornerRadius(20)
+                .foregroundColor(Color.white)
+        }  
     }
   }
 }
